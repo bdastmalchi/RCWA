@@ -1,0 +1,275 @@
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCuMENT CONFIGuRATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+
+\usepackage[letterpaper, portrait, margin=1.0in]{geometry}
+
+\usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{amsmath} % Required for some math elements 
+\usepackage{isomath} % Required for some math elements 
+\usepackage{mathrsfs,mathabx}
+\usepackage{empheq}
+\usepackage[most]{tcolorbox}
+\usepackage{mathtools,array,booktabs}
+
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=blue!30!black,
+    colback=blue!30, boxrule=0.1pt,
+    #1}
+
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+%\usepackage{times} % uncomment to use the Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%	DOCuMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Scattering from a Sheet of Periodic Conductivity} % Title
+
+\author{Babak \textsc{Dastmalchi}} % Author name
+
+%\date{\today} % Date for the report
+
+
+
+\begin{document}
+
+\maketitle % Insert the title, author and date
+
+
+
+
+% If you wish to include an abstract, uncomment the lines below
+% \begin{abstract}
+% Abstract text
+% \end{abstract}
+
+%==========================================
+%==========================================
+\section{Notation}
+
+\begin{itemize}
+\item Upper and lower media are denoted by substrate $I$ and $II$, respectively. 
+\item $R_i$ and $T_i$ respectively denote normalized reflected and Transmitted field amplitudes for the $i$th order.
+\item Physics notation has been chosen, i.e. $e^{-\jmath\left(\omega t - \vec{k}\dot\vec{r}\right) }$
+\item $\mu=\mu_0$ for all media
+\item For the TE polarization $\mathbf{E}=E_y\mathbf{\hat{y}}$ and $\mathbf{H}=H_x\mathbf{\hat{x}}+H_z\mathbf{\hat{z}}$
+\item parallel component of k-vector for i-th diffracted order is: $\beta_i=k_0 n_I \sin(\theta) - \frac{2\pi}{\Lambda} i$, where $k_0$ is the free space k-vector, $n_I$ is the refractive index for incident medium, and $\Lambda$ is the periodicity.
+\end{itemize}
+
+
+
+
+
+%==========================================
+%==========================================
+\section{Scattering Problem}
+
+%==========================================
+%==========================================
+\subsection{Tangential Fields at Media $I$ and $II$}
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\label{eq:tang_e} 
+\begin{array}{l}
+E_{Iy} = e^{\jmath\left(\beta_0 x+k_{I,z0}z\right)}+\sum\limits_i R_i e^{\jmath\left(\beta_i x-k_{I,zi}z\right)}\\
+E_{IIy} = \sum\limits_i T_i e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]}\\
+\end{array}	
+\end{empheq}
+
+\begin{equation*} 
+\label{eq:tang_h} 
+\begin{array}{l}
+H_{Ix} = \frac{\jmath}{\mu_0\omega}\partial_zE_{Iy}=\frac{\jmath}{\mu_0\omega}\left[ \jmath k_{I,z0}e^{\jmath\left(\beta_0 x+k_{I,z0}z\right)}+\sum\limits_i R_i \left(-\jmath k_{I,zi}\right)e^{\jmath\left(\beta_i x-k_{I,zi}z\right)} \right]\\
+H_{IIx} = \frac{\jmath}{\mu_0\omega}\partial_zE_{IIy}=\frac{\jmath}{\mu_0\omega}\{ \sum\limits_i T_i \left(\jmath k_{II,zi}\right) e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]} \}\\
+\end{array}	
+\end{equation*}
+
+assuming $Y_{I,i}=\frac{-1}{\mu_0\omega}k_{I,zi}$ and $Y_{II,i}=\frac{-1}{\mu_0\omega}k_{II,zi}$
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\label{eq:tang_h} 
+\begin{array}{l}
+H_{Ix} = Y_{I,0}e^{\jmath\left(\beta_0 x+k_{I,z0}z\right)} - \sum\limits_i R_i  Y_{I,i} e^{\jmath\left(\beta_i x-k_{I,zi}z\right)} \\
+H_{IIx} = \sum\limits_i T_i  Y_{II,i} e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]} \\
+\end{array}	
+\end{empheq}
+
+%==========================================
+%==========================================
+\subsection{Field expansion inside the grating region}
+Fields inside the gratings can be expanded in Fourier space harmonic bases
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\label{eq:tang_h} 
+\begin{array}{l}
+E_{y} = \sum\limits_i S_i(z) e^{\jmath \beta_i x} \\
+H_{x} = \sum\limits_i U_i(z) e^{\jmath \beta_i x} \\
+\end{array}	
+\end{empheq}
+
+and
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\label{eq:tang_h} 
+\begin{array}{l}
+S_i(z) = \sum\limits_m  \left( g_{i,m}^{+} e^{\jmath \gamma_m z} + g_{i,m}^{-} e^{-\jmath \gamma_m (z-d)} \right) \\
+U_i(z) = \frac{-1}{\mu_0\omega} \sum\limits_m  \left(  \gamma_m g_{i,m}^{+} e^{\jmath \gamma_m z} - \gamma_m g_{i,m}^{-} e^{-\jmath \gamma_m (z-d)} \right)
+\end{array}	
+\end{empheq}
+
+where $\gamma_m$s are the z components of the k-vector in the grating medium
+
+%==========================================
+%==========================================
+\subsection{Boundary condition at z=0}
+
+\begin{equation*} 
+\label{eq:rcwa_Maxwell_1} 
+\begin{array}{l}
+e^{\jmath\beta_0 x}+\sum\limits_i R_i e^{\jmath\beta_i x} = \sum\limits_i e^{\jmath \beta_i x} \sum\limits_m  \left( g_{i,m}^{+} + g_{i,m}^{-} e^{\jmath \gamma_m d} \right)  \\\\
+Y_{I,0}e^{\jmath\beta_0 x} - \sum\limits_i R_i  Y_{I,i} e^{\jmath\beta_i x} = \sum\limits_i e^{\jmath \beta_i x} \frac{-1}{\mu_0\omega} \sum\limits_m  \gamma_m\left( g_{i,m}^{+} - g_{i,m}^{-} e^{\jmath \gamma_m d} \right)
+\end{array}	
+\end{equation*}
+
+Separating diffracted orders (multiply by $e^{\jmath\beta_{i'} x}$ and integrate over $\int\limits_{-\infty}^{+\infty}dx$) gives
+
+\begin{equation*}
+\label{eq:rcwa_Maxwell_1} 
+\begin{array}{l}
+\delta_{i0}+ R_i = \sum\limits_m  \left( g_{i,m}^{+} + g_{i,m}^{-} e^{\jmath \gamma_m d} \right)  \\\\
+Y_{I,0}\delta_{i0} - R_i  Y_{I,i} = \frac{-1}{\mu_0\omega}\sum\limits_m   \gamma_m\left( g_{i,m}^{+} - g_{i,m}^{-} e^{\jmath \gamma_m d} \right)
+\end{array}	
+\end{equation*}
+
+This equation can be written in matrix form by further assuming $g_{i,m}^{\pm} = v_{i,m} c_m^{\pm} $,  and $w_{i,m}^{\pm} = -1/(\mu_0\omega)\gamma_m v_{i,m}^{\pm}$
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\label{eq:boundaryR} 
+\begin{array}{l}
+\delta_{i0}+ R_i = \sum\limits_m  v_{i,m}\left( c_{m}^{+} + c_{m}^{-} e^{\jmath \gamma_m d} \right)  \\\\
+Y_{I,0}\delta_{i0} - Y_{I,i}R_i  = \sum\limits_m  w_{i,m}\left( c_{m}^{+} - c_{m}^{-} e^{\jmath \gamma_m d} \right)
+\end{array}	
+\end{empheq}
+
+%==========================================
+%==========================================
+\subsection{Boundary condition at z=d}
+
+\begin{equation*} 
+\label{eq:rcwa_Maxwell_1} 
+\begin{array}{l}
+\sum\limits_i e^{\jmath \beta_i x} \sum\limits_m v_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right] = \sum\limits_i T_i e^{\jmath\beta_i x}  \\\\
+\sum\limits_i e^{\jmath \beta_i x}  \sum\limits_m w_{i,m} \left[ c_{m}^{+}  e^{\jmath \gamma_m d} - c_{m}^{-}   \right] = \sum\limits_i T_i  Y_{II,i} e^{\jmath\beta_i x}
+\end{array}	
+\end{equation*}
+
+Separating diffracted orders (multiply by $e^{\jmath\beta_{i'} x}$ and integrate over $\int\limits_{-\infty}^{+\infty}dx$) gives
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\label{eq:boundaryT} 
+\begin{array}{l}
+\sum\limits_m v_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right) = T_i   \\\\
+\sum\limits_m w_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m d} - c_{m}^{-}  \right) = T_i  Y_{II,i} 
+\end{array}	
+\end{empheq}
+
+
+%==========================================
+%==========================================
+\subsection{Eigen values}  
+
+eliminating $R_i$ from \ref{eq:boundaryR} and $T_i$ from \ref{eq:boundaryT} gives 
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\begin{array}{l}
+\left( Y_{I,0} +  Y_{I,i}\right) \delta_{i0}  - Y_{I,i} \sum\limits_m v_{i,m} \left( c_{m}^{+} + c_{m}^{-} e^{\jmath \gamma_m d} \right) = \sum\limits_m w_{i,m} \left( c_{m}^{+} - c_{m}^{-} e^{\jmath \gamma_m d} \right)\\\\
+Y_{II,i} \sum\limits_m v_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right]  = \sum\limits_m w_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} - c_{m}^{-}  \right] 
+\end{array}
+\label{eq:noR}
+\end{empheq}
+
+
+  
+Which can be written in a matrix form assuming $V$, $W$, $X$, $Y_I$, and $Y_{II}$, are diagonal matrices with elements $v_{i,m}$, $w_{i,m}$, $\exp(\jmath\gamma_m d)$, $Y_{I,i}$, $Y_{II,i}$:  
+
+ 
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\begin{array}{l}
+\begin{bmatrix}
+Y_{I}V & Y_{I}VX \\
+Y_{II}VX   & Y_{II}V
+\end{bmatrix}
+\begin{bmatrix}
+c^+ \\
+c^-
+\end{bmatrix}
+=
+\begin{bmatrix}
+-W & W X \\
+W X  & -W
+\end{bmatrix}
+\begin{bmatrix}
+c^+ \\
+c^-
+\end{bmatrix}
++
+\begin{bmatrix}
+\left[\left( Y_{I,0} +  Y_{I,i}\right) \delta_{i0}\right]_{n\times1} \\
+\left[0\right]_{n\times1}
+\end{bmatrix}	
+\end{array}	
+\label{eq:eig}
+\end{empheq}
+ 
+ or
+ 
+ \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\begin{array}{l}
+\begin{bmatrix}
+c^+ \\
+c^-
+\end{bmatrix}
+=
+\begin{bmatrix}
+Y_{I}V+W & (Y_{I}V-W)X \\
+(Y_{II}V-W)X   & Y_{II}V+W
+\end{bmatrix}^{-1}
+\begin{bmatrix}
+\left[\left( Y_{I,0} +  Y_{I,i}\right) \delta_{i0}\right]_{n\times1} \\
+\left[0\right]_{n\times1}
+\end{bmatrix}	
+\end{array}	
+\label{eq:eig}
+\end{empheq}
+ 
+
+
+\nocite{Smith:2012qr}
+%\nocite{*}
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\bibliographystyle{apalike}
+
+\nocite{*}
+\bibliography{sample}
+
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
