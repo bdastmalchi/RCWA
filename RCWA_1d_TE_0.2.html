@@ -11746,6 +11746,15 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="If-the-equations-do-not-render-properly-please-use-the-html-version-here">If the equations do not render properly please use the html version <a href="http://htmlpreview.github.io/?https://github.com/bdastmalchi/RCWA/blob/master/RCWA_1d_TE_0.2.html">here</a><a class="anchor-link" href="#If-the-equations-do-not-render-properly-please-use-the-html-version-here">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
@@ -11771,7 +11780,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="This-code-is-based-on-a-slightly-modified-version-of-[1].-The-following-assumptions-are-made-for-derivations">This code is based on a slightly modified version of [1]. The following assumptions are made for derivations<a class="anchor-link" href="#This-code-is-based-on-a-slightly-modified-version-of-[1].-The-following-assumptions-are-made-for-derivations">&#182;</a></h3><ul>
+<h3 id="This-code-is-based-on-a-slightly-modified-version-of-[1].-The-following-assumptions-are-made-for-derivations:">This code is based on a slightly modified version of [1]. The following assumptions are made for derivations:<a class="anchor-link" href="#This-code-is-based-on-a-slightly-modified-version-of-[1].-The-following-assumptions-are-made-for-derivations:">&#182;</a></h3><ul>
 <li>Upper and lower media are denoted by substrate $I$ and $II$, respectively. </li>
 <li>$R_i$ and $T_i$ respectively denote normalized reflected and Transmitted field amplitudes for the $i$-th order.</li>
 <li>Physics notation has been used, i.e. $ \exp(\jmath(\omega t - \mathbf{k} \cdot \mathbf{r})) $</li>
@@ -11790,7 +11799,9 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Fields-for-TE-polarization"><strong>Fields for TE polarization</strong><a class="anchor-link" href="#Fields-for-TE-polarization">&#182;</a></h2><blockquote><p>Fields in the exterior regions, assuming the coordinate is centered at the input interface:</p>
-<blockquote><p>Eq.(1.a-d):
+<blockquote><p>Eq.(1.a-d):</p>
+</blockquote>
+</blockquote>
 $$
 \begin{array}{l}
 E_{Iy} = e^{\jmath\left(\beta_0 x+k_{I,z0}z\right)}+\sum\limits_i R_i e^{\jmath\left(\beta_i x-k_{I,zi}z\right)}\\
@@ -11798,29 +11809,26 @@ E_{IIy} = \sum\limits_i T_i e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]}\\
 H_{Ix} = \frac{\jmath}{\mu_0\omega}\partial_zE_{Iy}=\frac{\jmath}{\mu_0\omega}\left[ \jmath k_{I,z0}e^{\jmath\left(\beta_0 x+k_{I,z0}z\right)}+\sum\limits_i R_i \left(-\jmath k_{I,zi}\right)e^{\jmath\left(\beta_i x-k_{I,zi}z\right)} \right]\\
 H_{IIx} = \frac{\jmath}{\mu_0\omega}\partial_zE_{IIy}=\frac{\jmath}{\mu_0\omega}\{ \sum\limits_i T_i \left(\jmath k_{II,zi}\right) e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]} \}
 \end{array} 
-$$</p>
+$$<blockquote><p>Fourier expansion of fields and the dielectric function in the periodic medium</p>
+<blockquote><p>Eq.(2.a-c):</p>
 </blockquote>
-<p>Fourier expansion of fields and the dielectric function in the periodic medium</p>
-<blockquote><p>Eq.(2.a-c):
+</blockquote>
 $$
 \begin{array}{l}
 E_{y} = \sum\limits_i S_i(z) e^{\jmath \beta_i x} \\
 H_{x} = \frac{-1}{\mu_0\omega}\sum\limits_i U_i(z) e^{\jmath \beta_i x} \\
 \varepsilon(x) = \sum\limits_i \varepsilon_i e^{-\jmath \beta_i x}
 \end{array}
-$$</p>
+$$<blockquote><p>Fourier coefficients can be expressed in therms of forward and backward propagating fields in perpndicular (to the periodicity) direction</p>
+<blockquote><p>Eq.(3.a, b):</p>
 </blockquote>
-<p>Fourier coefficients can be expressed in therms of forward and backward propagating fields in perpndicular (to the periodicity) direction</p>
-<blockquote><p>Eq.(3.a, b):
+</blockquote>
 $$
 \begin{array}{l}
 S_i(z) = \sum\limits_m  \left( g_{i,m}^{+} e^{\jmath \gamma_m z} + g_{i,m}^{-} e^{-\jmath \gamma_m (z-d)} \right) \\
 U_i(z) = \sum\limits_m  \left( \gamma_m g_{i,m}^{+} e^{\jmath \gamma_m z} - \gamma_m g_{i,m}^{-} e^{-\jmath \gamma_m (z-d)} \right)
 \end{array}    
-$$</p>
-</blockquote>
-</blockquote>
-
+$$
 </div>
 </div>
 </div>
@@ -11829,43 +11837,36 @@ $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Eigen-value-equation-for-the-periodic-region"><strong>Eigen value equation for the periodic region</strong><a class="anchor-link" href="#Eigen-value-equation-for-the-periodic-region">&#182;</a></h2><blockquote><blockquote>$$
+<h2 id="Eigen-value-equation-for-the-periodic-region"><strong>Eigen value equation for the periodic region</strong><a class="anchor-link" href="#Eigen-value-equation-for-the-periodic-region">&#182;</a></h2>$$
 \begin{array}{l}
 -\partial_z E_y\mathbf{\hat{x}}+\partial_x E_y\mathbf{\hat{z}}=\jmath\mu_0\omega\left(H_x\mathbf{\hat{x}}+H_z\mathbf{\hat{z}}\right)\\
 -\mathbf{\hat{y}}\left(\partial_x H_z-\partial_z H_x\right)=-\jmath\mu_0\omega E_y\mathbf{\hat{y}}
 \end{array}    
-$$
+$$<blockquote><p>using $H_x=\frac{\jmath}{\mu_0\omega}\partial_zE_y$, and $H_z=\frac{-\jmath}{\mu_0\omega}\partial_xE_y$ from the first Maxwell's equation to replace $H$-fields in the second equation results in a wave equation for the $E$-field</p>
 </blockquote>
-<p>using $H_x=\frac{\jmath}{\mu_0\omega}\partial_zE_y$, and $H_z=\frac{-\jmath}{\mu_0\omega}\partial_xE_y$ from the first Maxwell's equation to replace $H$-fields in the second equation results in a wave equation for the $E$-field</p>
-<blockquote>$$
+$$
 \begin{array}{l}
 \partial_z^2 E_y = -k_0^2 \epsilon E_y - \partial_x^2 E_y\\
 \end{array}    
-$$
+$$<blockquote><p>Substituting from eq.(3) yields</p>
 </blockquote>
-<p>Substituting from eq.(3) yields</p>
-<blockquote>$$
+$$
 \partial_z^2 \sum\limits_i S_i(z) e^{\jmath \beta_i x} = -k_0^2 \sum\limits_p e^{-\jmath\frac{2\pi p}{\Lambda}}\sum\limits_i S_i(z) e^{\jmath \beta_i x} - \partial_x^2\sum\limits_i S_i(z) e^{\jmath \beta_i x}
-$$
+$$<blockquote><p>Which can be further expanded to</p>
 </blockquote>
-<p>Which can be further expanded to</p>
-<blockquote>$$
+$$
 - \sum\limits_i \sum\limits_m \gamma_m^2 w_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m z} + c_{m}^{-} e^{-\jmath \gamma_m (z-d)} \right) = -k_0^2 \sum\limits_p \varepsilon_p e^{-\jmath\frac{2\pi p}{\Lambda}}\sum\limits_i S_i(z) e^{\jmath \beta_i x} + k_{xi}^2 \sum\limits_i S_i(z) e^{\jmath \beta_i x}
-$$
+$$<blockquote><p>multiplying by $e^{\jmath\beta_{i'} x}$ and integration over $\int\limits_{-\infty}^{+\infty}dx$</p>
 </blockquote>
-<p>multiplying by $e^{\jmath\beta_{i'} x}$ and integration over $\int\limits_{-\infty}^{+\infty}dx$</p>
-<blockquote>$$
+$$
 - \sum\limits_m \gamma_m^2 w_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m z} + c_{m}^{-} e^{-\jmath \gamma_m (z-d)} \right) = -k_0^2 \sum\limits_p \varepsilon_{i-p} S_{yp}(z) + k_{xi}^2  S_{yi}(z) 
-$$
+$$<blockquote><p>by assuming $\Gamma$ and $K_x$ as a diagonal matrices with elements $-\gamma_m^2$ and $k_{xi}^2$, and $E$ as a matrix with elements $\varepsilon_{i-p}$, this equation can be written in an eigen-equation form to be used to calculate $\gamma_m$s.</p>
+<blockquote><p>Eq.(4):</p>
 </blockquote>
-<p>by assuming $\Gamma$ and $K_x$ as a diagonal matrices with elements $-\gamma_m^2$ and $k_{xi}^2$, and $E$ as a matrix with elements $\varepsilon_{i-p}$, this equation can be written in an eigen-equation form to be used to calculate $\gamma_m$s.</p>
-<blockquote><p>Eq.(4):
+</blockquote>
 $$
 \Gamma S_y(z) = \left(K_x - E\right)S_y(z)
-$$</p>
-</blockquote>
-</blockquote>
-
+$$
 </div>
 </div>
 </div>
@@ -11875,50 +11876,55 @@ $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Diffraction-efficiencies"><strong>Diffraction efficiencies</strong><a class="anchor-link" href="#Diffraction-efficiencies">&#182;</a></h2><blockquote><p>Boundary conditions at the input boundary (z=0):</p>
-<blockquote><p>Eq.(5.a, b):
+<blockquote><p>Eq.(5.a, b):</p>
+</blockquote>
+</blockquote>
 $$
 \begin{array}{l}
 \delta_{i0}+ R_i = \sum\limits_m  \left( g_{i,m}^{+} + g_{i,m}^{-} e^{\jmath \gamma_m d} \right) \\
 k_{I,z0}\delta_{i0} - R_i  k_{I,zi} = \sum\limits_m   \gamma_m\left( g_{i,m}^{+} - g_{i,m}^{-} e^{\jmath \gamma_m d} \right)
 \end{array}    
-$$</p>
+$$<blockquote><p>Which can be written in a matrix form assuming $V$, $W$, $X$, $Y_I$, and $Y_{II}$, are diagonal matrices with elements $v_{i,m}$, $w_{i,m}$, $\exp(\jmath\gamma_m d)$, $k_{I,zi}$, $k_{II,zi}$, and $g_{i,m}^{\pm} = w_{i,m} c_m^{\pm} $,  and $v_{i,m} = \gamma_m w_{i,m}$:</p>
+<blockquote><p>Eq.(6):</p>
 </blockquote>
-<p>Which can be written in a matrix form assuming $V$, $W$, $X$, $Y_I$, and $Y_{II}$, are diagonal matrices with elements $v_{i,m}$, $w_{i,m}$, $\exp(\jmath\gamma_m d)$, $k_{I,zi}$, $k_{II,zi}$, and $g_{i,m}^{\pm} = w_{i,m} c_m^{\pm} $,  and $v_{i,m} = \gamma_m w_{i,m}$:</p>
-<blockquote><p>Eq.(6):
+</blockquote>
 $$
 \begin{array}{l}
 \begin{bmatrix}
-I \
+I \\
 -Y_{I}
 \end{bmatrix}
 \begin{bmatrix}
 R 
-\end{bmatrix}=
+\end{bmatrix}
+=
 \begin{bmatrix}
-W &amp; W X \
-V  &amp; -V X
+W & W X \\
+V  & -V X
 \end{bmatrix}
 \begin{bmatrix}
-c^+ \
-c^-</p>
-<h2 id="\end{bmatrix}">\end{bmatrix}<a class="anchor-link" href="#\end{bmatrix}">&#182;</a></h2>\begin{bmatrix}
+c^+ \\
+c^-
+\end{bmatrix}
+-
+\begin{bmatrix}
 \delta_{i0} \\
 k_{I,z0}\delta_{i0}
-\end{bmatrix}<p><br>
+\end{bmatrix}    
 \end{array}
-$$</p>
+$$<blockquote><p>Similarly, the conditions for the output boundary (z=d) can be derived as:</p>
+<blockquote><p>Eq.(7.a, b):</p>
 </blockquote>
-<p>Similarly, the conditions for the output boundary (z=d) can be derived as:</p>
-<blockquote><p>Eq.(7.a, b):
+</blockquote>
 $$
 \begin{array}{l}
 \sum\limits_m w_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right) = T_i \\
 \sum\limits_m v_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m d} - c_{m}^{-}  \right) = T_i  k_{II,zi}
 \end{array}    
-$$</p>
+$$<blockquote><p>or</p>
+<blockquote><p>Eq.(8):</p>
 </blockquote>
-<p>or</p>
-<blockquote><p>Eq.(8):
+</blockquote>
 $$
 \begin{array}{l}
 \begin{bmatrix}
@@ -11927,7 +11933,8 @@ Y_{II}
 \end{bmatrix}
 \begin{bmatrix}
 T
-\end{bmatrix}=
+\end{bmatrix}
+=
 \begin{bmatrix}
 W X & W \\
 V X  & -V
@@ -11937,10 +11944,7 @@ c^+ \\
 c^-
 \end{bmatrix}
 \end{array}
-$$</p>
-</blockquote>
-</blockquote>
-
+$$
 </div>
 </div>
 </div>
@@ -11950,33 +11954,34 @@ $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Coefficients-of-the-fields-inside-the-grating-(C-matrix)"><strong>Coefficients of the fields inside the grating (C matrix)</strong><a class="anchor-link" href="#Coefficients-of-the-fields-inside-the-grating-(C-matrix)">&#182;</a></h2><blockquote><p>Calculation of diffraction efficiencies requires prior calculation of C matrix elements which can be done by eliminating $R_i$ from eq.(5), and $T_i$ from eq.(7)</p>
-<blockquote>$$ 
+</blockquote>
+$$ 
 \begin{array}{l}
 \left( k_{I,z0} +  k_{I,zi}\right) \delta_{i0}  - k_{I,zi} \sum\limits_m w_{i,m} \left( c_{m}^{+} + c_{m}^{-} e^{\jmath \gamma_m d} \right) = \sum\limits_m v_{i,m} \left( c_{m}^{+} - c_{m}^{-} e^{\jmath \gamma_m d} \right)\\
 k_{II,zi} \sum\limits_m w_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right]  = \sum\limits_m v_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} - c_{m}^{-}  \right] 
 \end{array}
 $$<p></p>
+<blockquote><p>or in a matrix form</p>
+<blockquote><p>Eq.(9):</p>
 </blockquote>
-<p>or in a matrix form</p>
-<blockquote><p>Eq.(9):
+</blockquote>
 $$
 \begin{array}{l}
 \begin{bmatrix}
-c^+ \
-c^-</p>
-<h1 id="\end{bmatrix}">\end{bmatrix}<a class="anchor-link" href="#\end{bmatrix}">&#182;</a></h1>\begin{bmatrix}
+c^+ \\
+c^-
+\end{bmatrix}
+=
+\begin{bmatrix}
 Y_{I}W+V & (Y_{I}W-V)X \\
 (-Y_{II}W+V)X   & -Y_{II}W-V
-\end{bmatrix}<p>^{-1}
+\end{bmatrix}^{-1}
 \begin{bmatrix}
-\left[\left( Y<em>{I,0} +  Y</em>{I,i}\right) \delta<em>{i0}\right]</em>{n\times1} \
+\left[\left( Y_{I,0} +  Y_{I,i}\right) \delta_{i0}\right]_{n\times1} \\
 \left[0\right]_{n\times1}
-\end{bmatrix}<br>
+\end{bmatrix}    
 \end{array}
-$$</p>
-</blockquote>
-</blockquote>
-
+$$
 </div>
 </div>
 </div>
@@ -11987,15 +11992,15 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="-Calculating-tangential-fields-"><strong> Calculating tangential fields </strong><a class="anchor-link" href="#-Calculating-tangential-fields-">&#182;</a></h2><blockquote><p><strong> Inside the grating </strong></p>
 <p>tangential electric and magnetic fields in the grating region</p>
-<blockquote>$$
+</blockquote>
+$$
 \begin{array}{l}
 S_i(z) = \sum\limits_m w_{i,m} ( c_{m}^{+} e^{\jmath \gamma_m z} + c_{m}^{-} e^{-\jmath \gamma_m (z-d)})\\
 U_i(z) = \sum\limits_m v_{i,m} ( c_{m}^{+} e^{\jmath \gamma_m z} - c_{m}^{-} e^{-\jmath \gamma_m (z-d)})
 \end{array}    
-$$
+$$<blockquote><p>Assuming $X^+$, and $X^-$ are matrices with elements $\exp(\jmath\gamma_m z)$, and $\exp[-\jmath\gamma_m (z-d)]$ on diagonals, eqs.(3.a, b) can be written and solved in a matrix form:</p>
 </blockquote>
-<p>Assuming $X^+$, and $X^-$ are matrices with elements $\exp(\jmath\gamma_m z)$, and $\exp[-\jmath\gamma_m (z-d)]$ on diagonals, eqs.(3.a, b) can be written and solved in a matrix form:</p>
-<blockquote>$$
+$$
 \begin{bmatrix} 
     S_y(z) \\
     U_x(z)     
@@ -12009,18 +12014,14 @@ $$
     c^+ \\
     c^-
 \end{bmatrix}
-$$
+$$<blockquote><p>and finally tangential electric and magnetic fields inside the grating can be calculated using</p>
 </blockquote>
-<p>and finally tangential electric and magnetic fields inside the grating can be calculated using</p>
-<blockquote>$$
+$$
 \begin{array}{l}
 E_{gy} = \sum_{i} S_{yi}(z) \exp(\jmath k_{xi} x)\\
 H_{gx} = \frac{-1}{\mu_0\omega}\sum_{i} U_{xi}(z) \exp(\jmath k_{xi} x)
 \end{array}    
 $$
-</blockquote>
-</blockquote>
-
 </div>
 </div>
 </div>
