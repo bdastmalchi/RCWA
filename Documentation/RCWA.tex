@@ -62,7 +62,7 @@
 \begin{itemize}
 \item Upper and lower media are denoted by substrate $I$ and $II$, respectively. 
 \item $R_i$ and $T_i$ respectively denote normalized reflected and Transmitted field amplitudes for the $i$th order.
-\item Physics notation has been chosen, i.e. $e^{-\jmath\left(\omega t - \vec{k}\dot\vec{r}\right) }$
+\item Physics notation has been used, i.e. $ e^{\jmath(\omega t - \vec{k} \cdot \vec{r})} $
 \item $\mu=\mu_0$ for all media
 \item For the TE polarization $\mathbf{E}=E_y\mathbf{\hat{y}}$ and $\mathbf{H}=H_x\mathbf{\hat{x}}+H_z\mathbf{\hat{z}}$
 \item parallel component of k-vector for i-th diffracted order is: $\beta_i=k_0 n_I \sin(\theta) - \frac{2\pi}{\Lambda} i$, where $k_0$ is the free space k-vector, $n_I$ is the refractive index for incident medium, and $\Lambda$ is the periodicity.
@@ -88,90 +88,181 @@ E_{IIy} = \sum\limits_i T_i e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]}\\
 \end{array}	
 \end{empheq}
 
-\begin{equation*} 
-\label{eq:tang_h} 
+\begin{equation} 
+\label{eq:tang_h1} 
 \begin{array}{l}
 H_{Ix} = \frac{\jmath}{\mu_0\omega}\partial_zE_{Iy}=\frac{\jmath}{\mu_0\omega}\left[ \jmath k_{I,z0}e^{\jmath\left(\beta_0 x+k_{I,z0}z\right)}+\sum\limits_i R_i \left(-\jmath k_{I,zi}\right)e^{\jmath\left(\beta_i x-k_{I,zi}z\right)} \right]\\
 H_{IIx} = \frac{\jmath}{\mu_0\omega}\partial_zE_{IIy}=\frac{\jmath}{\mu_0\omega}\{ \sum\limits_i T_i \left(\jmath k_{II,zi}\right) e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]} \}\\
 \end{array}	
-\end{equation*}
+\end{equation}
 
-assuming $Y_{I,i}=\frac{-1}{\mu_0\omega}k_{I,zi}$ and $Y_{II,i}=\frac{-1}{\mu_0\omega}k_{II,zi}$
+which can be rearranged as
 
 \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
-\label{eq:tang_h} 
+\label{eq:tang_h2} 
 \begin{array}{l}
-H_{Ix} = Y_{I,0}e^{\jmath\left(\beta_0 x+k_{I,z0}z\right)} - \sum\limits_i R_i  Y_{I,i} e^{\jmath\left(\beta_i x-k_{I,zi}z\right)} \\
-H_{IIx} = \sum\limits_i T_i  Y_{II,i} e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]} \\
+H_{Ix} = \frac{-1}{\mu_0\omega}\left[k_{I,zi}e^{\jmath\left(\beta_0 x+k_{I,z0}z\right)} - \sum\limits_i R_i  k_{I,zi} e^{\jmath\left(\beta_i x-k_{I,zi}z\right)}\right] \\
+H_{IIx} = \frac{-1}{\mu_0\omega}\sum\limits_i T_i  k_{II,zi} e^{\jmath\left[\beta_i x+k_{II,zi}(z-d)\right]} \\
 \end{array}	
 \end{empheq}
 
 %==========================================
 %==========================================
 \subsection{Field expansion inside the grating region}
-Fields inside the gratings can be expanded in Fourier space harmonic bases
+Fields inside the gratings can be expanded in Fourier space harmonic bases, $H_x$ can also calculated using $H_x=\frac{\jmath}{\mu_0\omega}\partial_z Ey(z)$
 
 \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
-\label{eq:tang_h} 
+\label{eq:expansion1} 
 \begin{array}{l}
 E_{y} = \sum\limits_i S_i(z) e^{\jmath \beta_i x} \\
-H_{x} = \sum\limits_i U_i(z) e^{\jmath \beta_i x} \\
+H_{x} = \frac{-1}{\mu_0\omega}\sum\limits_i U_i(z) e^{\jmath \beta_i x} \\
 \end{array}	
 \end{empheq}
 
 and
 
 \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
-\label{eq:tang_h} 
+\label{eq:expansion2} 
 \begin{array}{l}
 S_i(z) = \sum\limits_m  \left( g_{i,m}^{+} e^{\jmath \gamma_m z} + g_{i,m}^{-} e^{-\jmath \gamma_m (z-d)} \right) \\
-U_i(z) = \frac{-1}{\mu_0\omega} \sum\limits_m  \left(  \gamma_m g_{i,m}^{+} e^{\jmath \gamma_m z} - \gamma_m g_{i,m}^{-} e^{-\jmath \gamma_m (z-d)} \right)
+U_i(z) = \sum\limits_m  \left( \gamma_m g_{i,m}^{+} e^{\jmath \gamma_m z} - \gamma_m g_{i,m}^{-} e^{-\jmath \gamma_m (z-d)} \right)
 \end{array}	
 \end{empheq}
 
-where $\gamma_m$s are the z components of the k-vector in the grating medium
+where $\gamma_m$s are the z components of the k-vector in the grating medium, to be calculated in the following subsection.
+%==========================================
+%==========================================
+\subsection{Eigenvalue equation for the periodic layer under TE polarization}
+
+We start from the Maxwells' equations
+
+\begin{equation} 
+\label{eq:rcwa_Maxwell_1} 
+\begin{array}{l}
+\mathbf{\nabla}\times\mathbf{E}=-\mu_0\partial_t\mathbf{H}\\
+\mathbf{\nabla}\times\mathbf{H}=\varepsilon_0\partial_t\mathbf{E}\\
+\end{array}	
+\end{equation}
+
+for TE polarization
+
+\begin{equation} 
+\label{eq:rcwa_Maxwell_2} 
+\begin{array}{l}
+-\partial_z E_y\mathbf{\hat{x}}+\partial_x E_y\mathbf{\hat{z}}=\jmath\mu_0\omega\left(H_x\mathbf{\hat{x}}+H_z\mathbf{\hat{z}}\right)\\\\
+-\mathbf{\hat{y}}\left(\partial_x H_z-\partial_z H_x\right)=-\jmath\mu_0\omega E_y\mathbf{\hat{y}}
+\end{array}	
+\end{equation}
+
+using $H_x=\frac{\jmath}{\mu_0\omega}\partial_zE_y$, and $H_z=\frac{-\jmath}{\mu_0\omega}\partial_xE_y$ from the first equation of \ref{eq:rcwa_Maxwell_2} to replace $H$-fields in the second equation results in a wave equation for the $E$-field
+
+\begin{equation} 
+\label{eq:eig_1} 
+\begin{array}{l}
+\partial_z^2 E_y = -k_0^2 \epsilon E_y - \partial_x^2 E_y\\\\
+\end{array}	
+\end{equation}
+
+Substituting \ref{eq:expansion2} yields 
+
+\begin{equation}
+\label{eq:eig_2} 
+\partial_z^2 \sum\limits_i S_i(z) e^{\jmath \beta_i x} = -k_0^2 \sum\limits_p e^{-\jmath\frac{2\pi p}{\Lambda}}\sum\limits_i S_i(z) e^{\jmath \beta_i x} - \partial_x^2\sum\limits_i S_i(z) e^{\jmath \beta_i x}
+\end{equation}
+
+Which can be further expanded to
+
+\begin{equation}
+\label{eq:eig_3} 
+- \sum\limits_i \sum\limits_m \gamma_m^2 w_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m z} + c_{m}^{-} e^{-\jmath \gamma_m (z-d)} \right) = -k_0^2 \sum\limits_p \varepsilon_p e^{-\jmath\frac{2\pi p}{\Lambda}}\sum\limits_i S_i(z) e^{\jmath \beta_i x} + k_{xi}^2 \sum\limits_i S_i(z) e^{\jmath \beta_i x}
+\end{equation}
+
+multiplying by $e^{\jmath\beta_{i'} x}$ and integration over $\int\limits_{-\infty}^{+\infty}dx$
+
+\begin{equation}
+\label{eq:eig_4} 
+- \sum\limits_m \gamma_m^2 w_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m z} + c_{m}^{-} e^{-\jmath \gamma_m (z-d)} \right) = -k_0^2 \sum\limits_p \varepsilon_{i-p} S_{yp}(z) + k_{xi}^2  S_{yi}(z) 
+\end{equation}
+
+by assuming $\Gamma$ and $K_x$ as a diagonal matrices with elements $-\gamma_m^2$ and $k_{xi}^2$, and $E$ as a matrix with elements $\varepsilon_{i-p}$, eq. \ref{eq:eig_4} can be written in an eigen-equation form to be used to calculate $\gamma_m$s.
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\Gamma S_y(z) = \left(K_x - E\right)S_y(z)
+\label{eq:eig}
+\end{empheq}
 
 %==========================================
 %==========================================
 \subsection{Boundary condition at z=0}
 
 \begin{equation*} 
-\label{eq:rcwa_Maxwell_1} 
+\label{eq:Bz01} 
 \begin{array}{l}
 e^{\jmath\beta_0 x}+\sum\limits_i R_i e^{\jmath\beta_i x} = \sum\limits_i e^{\jmath \beta_i x} \sum\limits_m  \left( g_{i,m}^{+} + g_{i,m}^{-} e^{\jmath \gamma_m d} \right)  \\\\
-Y_{I,0}e^{\jmath\beta_0 x} - \sum\limits_i R_i  Y_{I,i} e^{\jmath\beta_i x} = \sum\limits_i e^{\jmath \beta_i x} \frac{-1}{\mu_0\omega} \sum\limits_m  \gamma_m\left( g_{i,m}^{+} - g_{i,m}^{-} e^{\jmath \gamma_m d} \right)
+k_{I,z0}e^{\jmath\beta_0 x} - \sum\limits_i R_i  k_{I,zi} e^{\jmath\beta_i x} = \sum\limits_i e^{\jmath \beta_i x} \sum\limits_m  \gamma_m\left( g_{i,m}^{+} - g_{i,m}^{-} e^{\jmath \gamma_m d} \right)
 \end{array}	
 \end{equation*}
 
 Separating diffracted orders (multiply by $e^{\jmath\beta_{i'} x}$ and integrate over $\int\limits_{-\infty}^{+\infty}dx$) gives
 
 \begin{equation*}
-\label{eq:rcwa_Maxwell_1} 
+\label{eq:Bz02} 
 \begin{array}{l}
 \delta_{i0}+ R_i = \sum\limits_m  \left( g_{i,m}^{+} + g_{i,m}^{-} e^{\jmath \gamma_m d} \right)  \\\\
-Y_{I,0}\delta_{i0} - R_i  Y_{I,i} = \frac{-1}{\mu_0\omega}\sum\limits_m   \gamma_m\left( g_{i,m}^{+} - g_{i,m}^{-} e^{\jmath \gamma_m d} \right)
+k_{I,z0}\delta_{i0} - R_i  k_{I,zi} = \sum\limits_m   \gamma_m\left( g_{i,m}^{+} - g_{i,m}^{-} e^{\jmath \gamma_m d} \right)
 \end{array}	
 \end{equation*}
 
-This equation can be written in matrix form by further assuming $g_{i,m}^{\pm} = v_{i,m} c_m^{\pm} $,  and $w_{i,m}^{\pm} = -1/(\mu_0\omega)\gamma_m v_{i,m}^{\pm}$
+To be able to derive a matrix form for the equations we further assume $g_{i,m}^{\pm} = w_{i,m} c_m^{\pm} $,  and $v_{i,m} = \gamma_m w_{i,m}$
 
 \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
 \label{eq:boundaryR} 
 \begin{array}{l}
-\delta_{i0}+ R_i = \sum\limits_m  v_{i,m}\left( c_{m}^{+} + c_{m}^{-} e^{\jmath \gamma_m d} \right)  \\\\
-Y_{I,0}\delta_{i0} - Y_{I,i}R_i  = \sum\limits_m  w_{i,m}\left( c_{m}^{+} - c_{m}^{-} e^{\jmath \gamma_m d} \right)
+\delta_{i0}+ R_i = \sum\limits_m  w_{i,m}\left( c_{m}^{+} + c_{m}^{-} e^{\jmath \gamma_m d} \right)  \\\\
+k_{I,z0}\delta_{i0} - k_{I,zi}R_i  = \sum\limits_m v_{i,m}\left( c_{m}^{+} - c_{m}^{-} e^{\jmath \gamma_m d} \right)
 \end{array}	
+\end{empheq}
+
+Which can be written in a matrix form assuming $V$, $W$, $X$, $Y_I$, and $Y_{II}$, are diagonal matrices with elements $v_{i,m}$, $w_{i,m}$, $\exp(\jmath\gamma_m d)$, $k_{I,zi}$, $k_{II,zi}$:  
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\begin{array}{l}
+\begin{bmatrix}
+I \\
+-Y_{I}
+\end{bmatrix}
+\begin{bmatrix}
+R 
+\end{bmatrix}
+=
+\begin{bmatrix}
+W & W X \\
+V  & -V X
+\end{bmatrix}
+\begin{bmatrix}
+c^+ \\
+c^-
+\end{bmatrix}
+-
+\begin{bmatrix}
+\delta_{i0} \\
+k_{I,z0}\delta_{i0}
+\end{bmatrix}	
+\end{array}	
+\label{eq:boundaryR_mat}
 \end{empheq}
 
 %==========================================
 %==========================================
 \subsection{Boundary condition at z=d}
 
+Boundary conditions for the output end of the periodic layer can be similarly derived.
+
 \begin{equation*} 
-\label{eq:rcwa_Maxwell_1} 
+\label{eq:Bzd1} 
 \begin{array}{l}
-\sum\limits_i e^{\jmath \beta_i x} \sum\limits_m v_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right] = \sum\limits_i T_i e^{\jmath\beta_i x}  \\\\
-\sum\limits_i e^{\jmath \beta_i x}  \sum\limits_m w_{i,m} \left[ c_{m}^{+}  e^{\jmath \gamma_m d} - c_{m}^{-}   \right] = \sum\limits_i T_i  Y_{II,i} e^{\jmath\beta_i x}
+\sum\limits_i e^{\jmath \beta_i x} \sum\limits_m w_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right] = \sum\limits_i T_i e^{\jmath\beta_i x}  \\\\
+\sum\limits_i e^{\jmath \beta_i x}  \sum\limits_m v_{i,m} \left[ c_{m}^{+}  e^{\jmath \gamma_m d} - c_{m}^{-}   \right] = \sum\limits_i T_i  k_{II,zi} e^{\jmath\beta_i x}
 \end{array}	
 \end{equation*}
 
@@ -180,9 +271,33 @@ Separating diffracted orders (multiply by $e^{\jmath\beta_{i'} x}$ and integrate
 \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
 \label{eq:boundaryT} 
 \begin{array}{l}
-\sum\limits_m v_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right) = T_i   \\\\
-\sum\limits_m w_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m d} - c_{m}^{-}  \right) = T_i  Y_{II,i} 
+\sum\limits_m w_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right) = T_i   \\\\
+\sum\limits_m v_{i,m} \left( c_{m}^{+} e^{\jmath \gamma_m d} - c_{m}^{-}  \right) = T_i  k_{II,zi}
 \end{array}	
+\end{empheq}
+
+Matrix form:
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\begin{array}{l}
+\begin{bmatrix}
+I \\
+Y_{II}
+\end{bmatrix}
+\begin{bmatrix}
+T
+\end{bmatrix}
+=
+\begin{bmatrix}
+W X & W \\
+V X  & -V
+\end{bmatrix}
+\begin{bmatrix}
+c^+ \\
+c^-
+\end{bmatrix}
+\end{array}	
+\label{eq:boundaryT_mat}
 \end{empheq}
 
 
@@ -190,26 +305,26 @@ Separating diffracted orders (multiply by $e^{\jmath\beta_{i'} x}$ and integrate
 %==========================================
 \subsection{Eigen values}  
 
-eliminating $R_i$ from \ref{eq:boundaryR} and $T_i$ from \ref{eq:boundaryT} gives 
+Eliminating $R_i$ from \ref{eq:boundaryR} and $T_i$ from \ref{eq:boundaryT} gives 
 
 \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
 \begin{array}{l}
-\left( Y_{I,0} +  Y_{I,i}\right) \delta_{i0}  - Y_{I,i} \sum\limits_m v_{i,m} \left( c_{m}^{+} + c_{m}^{-} e^{\jmath \gamma_m d} \right) = \sum\limits_m w_{i,m} \left( c_{m}^{+} - c_{m}^{-} e^{\jmath \gamma_m d} \right)\\\\
-Y_{II,i} \sum\limits_m v_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right]  = \sum\limits_m w_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} - c_{m}^{-}  \right] 
+\left( k_{I,z0} +  k_{I,zi}\right) \delta_{i0}  - k_{I,zi} \sum\limits_m w_{i,m} \left( c_{m}^{+} + c_{m}^{-} e^{\jmath \gamma_m d} \right) = \sum\limits_m v_{i,m} \left( c_{m}^{+} - c_{m}^{-} e^{\jmath \gamma_m d} \right)\\\\
+k_{II,zi} \sum\limits_m w_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} + c_{m}^{-}  \right]  = \sum\limits_m v_{i,m} \left[ c_{m}^{+} e^{\jmath \gamma_m d} - c_{m}^{-}  \right] 
 \end{array}
 \label{eq:noR}
 \end{empheq}
 
 
   
-Which can be written in a matrix form assuming $V$, $W$, $X$, $Y_I$, and $Y_{II}$, are diagonal matrices with elements $v_{i,m}$, $w_{i,m}$, $\exp(\jmath\gamma_m d)$, $Y_{I,i}$, $Y_{II,i}$:  
+Matrix form: 
 
  
 \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
 \begin{array}{l}
 \begin{bmatrix}
-Y_{I}V & Y_{I}VX \\
-Y_{II}VX   & Y_{II}V
+-Y_{I}W & -Y_{I}WX \\
+Y_{II}WX   & Y_{II}W
 \end{bmatrix}
 \begin{bmatrix}
 c^+ \\
@@ -217,14 +332,14 @@ c^-
 \end{bmatrix}
 =
 \begin{bmatrix}
--W & W X \\
-W X  & -W
+V & -V X \\
+V X  & -V
 \end{bmatrix}
 \begin{bmatrix}
 c^+ \\
 c^-
 \end{bmatrix}
-+
+-
 \begin{bmatrix}
 \left[\left( Y_{I,0} +  Y_{I,i}\right) \delta_{i0}\right]_{n\times1} \\
 \left[0\right]_{n\times1}
@@ -233,9 +348,9 @@ c^-
 \label{eq:eig}
 \end{empheq}
  
- or
+ Which can be solved for C
  
- \begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
 \begin{array}{l}
 \begin{bmatrix}
 c^+ \\
@@ -243,8 +358,8 @@ c^-
 \end{bmatrix}
 =
 \begin{bmatrix}
-Y_{I}V+W & (Y_{I}V-W)X \\
-(Y_{II}V-W)X   & Y_{II}V+W
+Y_{I}W+V & (Y_{I}W-V)X \\
+(-Y_{II}W+V)X   & -Y_{II}W-V
 \end{bmatrix}^{-1}
 \begin{bmatrix}
 \left[\left( Y_{I,0} +  Y_{I,i}\right) \delta_{i0}\right]_{n\times1} \\
@@ -254,6 +369,32 @@ Y_{I}V+W & (Y_{I}V-W)X \\
 \label{eq:eig}
 \end{empheq}
  
+
+%==========================================
+\section{Some useful derivations}
+
+
+%==========================================
+%==========================================
+%==========================================
+\subsection{Multiplication of Field and Dielectric Function's Fourier Expansions}
+
+\begin{equation*} 
+\label{eq:tang_h} 
+\begin{array}{l}
+\sum\limits_h \sum\limits_p \left(\sigma_h e^{\jmath\frac{2\pi}{\Lambda}hx} \right) \left( T_p e^{-\jmath\left[ k_0 n_I \sin(\theta) - \frac{2\pi}{\Lambda}p\right] x} \right)\\
+=\sum\limits_h \sum\limits_p \sigma_h T_p  e^{-\jmath\left[ k_0 n_I \sin(\theta) - \frac{2\pi}{\Lambda} \left(h+p \right) \right] x}\\
+=\sum\limits_q \sum\limits_p \sigma_{q-p} T_p  e^{-\jmath\left[ k_0 n_I \sin(\theta) - \frac{2\pi}{\Lambda} q \right] x}\\
+=\sum\limits_q \sum\limits_p \sigma_{q-p} T_p  e^{-\jmath\beta_q x}\\
+\end{array}	
+\end{equation*}
+
+where $q=(h+p)$. Multiplying by $e^{\jmath\beta_i x}$ and integrating over $\int\limits_{-\infty}^{+\infty}dx$ gives $\delta_{iq}$ and results in
+
+
+\begin{empheq}[box={\mymath[colback=white!30,drop lifted shadow, sharp corners]}]{equation}
+\sum\limits_p \sigma_{i-p} T_p
+\end{empheq}
 
 
 \nocite{Smith:2012qr}
